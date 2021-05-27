@@ -1,0 +1,21 @@
+h1 {
+  text-align: center;
+}
+
+.container {
+  padding: 0px 20% 0px 20%;
+}
+
+.my-div {
+  background-color: gray;
+  color: orange;
+} 
+
+a {
+  color: orange;
+  text-decoration: none;
+}
+
+.img {
+  
+}
