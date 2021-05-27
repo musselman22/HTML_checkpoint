@@ -16,6 +16,14 @@ a {
   text-decoration: none;
 }
 
-.img {
-  
+.movie-list {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.movie-poster {
+  width: 24%;
+  height: auto;
+  margin-top: 20px;
 }
