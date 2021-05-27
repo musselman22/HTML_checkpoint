@@ -144,6 +144,13 @@ movies.push(new Movie(
 const containerClass = ".movie-list";
 const movieClass = "movie-poster";
 let movieContainer = null;
+let searchButton = null;
+let searchTextBox = null;
+
+function buttonClick(event) {
+    updatePosters(searchTextBox.value);
+    event.preventDefault();
+}
 
 function updatePosters(searchString = "") {
     // Clear current posters
@@ -154,9 +161,10 @@ function updatePosters(searchString = "") {
 
     let moviesToUpdate = movies;
 
-    if(!(searchString === ""))
+    if(searchString !== "")
     {
-        moviesToUpdate = movies.filter(movie => movie.name.includes(searchString));
+        console.log("SEARCHING");
+        moviesToUpdate = movies.filter(movie => movie.name.toUpperCase().includes(searchString.toUpperCase()));
     }
 
     moviesToUpdate.forEach(movie => {
@@ -168,10 +176,12 @@ function updatePosters(searchString = "") {
     })
 }
 
+
 document.addEventListener("DOMContentLoaded", function() {
+    searchButton = document.querySelector(".search-btn");
+    searchTextBox = document.querySelector(".search-box");
+    searchButton.addEventListener("click", buttonClick);
     movieContainer = document.querySelector(containerClass);
     console.log(movieContainer);
-    updatePosters(movies);
+    updatePosters();
 })
-
-export {updatePosters};
